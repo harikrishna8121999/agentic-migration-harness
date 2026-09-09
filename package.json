@@ -1,0 +1,33 @@
+{
+  "name": "agent-migration-harness",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A reference harness that migrates a legacy browser-test suite to Playwright, one test at a time, with mechanical proof it still passes.",
+  "type": "module",
+  "bin": {
+    "harness": "./harness/cli.ts"
+  },
+  "scripts": {
+    "harness": "tsx harness/cli.ts",
+    "dry-run": "tsx harness/cli.ts --dry-run",
+    "break-it": "tsx scripts/break-it.ts",
+    "typecheck": "tsc --noEmit",
+    "demo-app": "node example/app/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "@playwright/test": "^1.48.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.7.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

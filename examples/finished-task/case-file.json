@@ -1,0 +1,53 @@
+{
+  "unit": {
+    "id": "rejects_an_invalid_password",
+    "tag": "[migrated:rejects_an_invalid_password]",
+    "sourceFile": "example/legacy-tests/login.spec.js",
+    "sourceName": "rejects an invalid password",
+    "sourceAssertions": [
+      "rejects_an_invalid_password:shows-error-banner"
+    ]
+  },
+  "status": "done",
+  "phase": "close",
+  "attempts": [
+    {
+      "phase": "implement",
+      "verdict": "pass",
+      "at": "2026-09-09T15:56:53.939Z"
+    },
+    {
+      "phase": "verify",
+      "verdict": "fail",
+      "signature": "expect(errorBanner).toBeVisible() — locator resolved to 0 elements",
+      "at": "2026-09-09T15:56:53.941Z"
+    },
+    {
+      "phase": "implement",
+      "verdict": "pass",
+      "at": "2026-09-09T15:56:53.942Z"
+    },
+    {
+      "phase": "verify",
+      "verdict": "pass",
+      "at": "2026-09-09T15:56:53.945Z"
+    },
+    {
+      "phase": "review",
+      "verdict": "pass",
+      "at": "2026-09-09T15:56:53.947Z"
+    }
+  ],
+  "targetFile": "example/migrated-tests/rejects_an_invalid_password.spec.ts",
+  "evidence": {
+    "reportHash": "ac3704545585ecc8282e1bc2fb36a74300d627fd0f4378c684edbbee22c2dd20",
+    "reportPath": "tasks/reports/rejects_an_invalid_password-dryrun-2.json",
+    "assertionParity": {
+      "covered": 1,
+      "total": 1,
+      "dropped": []
+    },
+    "conventionsPassed": true,
+    "recordedAt": "2026-09-09T15:56:53.948Z"
+  }
+}

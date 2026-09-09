@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.log
+.env
+!.env.example
+
+# runtime-generated case files, never shipped
+tasks/*
+!tasks/.gitkeep
+
+# runtime-generated retrospective proposals — a reader's own run creates this
+gotchas-proposed.md
+
+# private planning brief — not part of the published repo
+agent-harness-blog-and-repo-plan.md
