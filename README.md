@@ -11,6 +11,15 @@ project, illustrated here with a small bundled example (a Protractor suite
 migrating to Playwright, against a demo app also bundled in this repo).
 Nothing here needs an account, a VPN, or a secret.
 
+This repo's own git history is a real run, not a mockup: `git log` shows a
+model (via OpenRouter) migrating all four example tests, two of them timing
+out on the first attempt for a genuine reason (a missing login precondition
+in the source suite — see `gotchas.md`), a source fix, and a clean re-run.
+`example/migrated-tests/` is that run's actual output, committed as-is. A
+fresh run of your own will attempt every unit again from scratch — case
+files under `tasks/` are gitignored on purpose (see "Layout" below), so only
+git commits, not the harness's own bookkeeping, persist across a clone.
+
 ## 60-second dry run
 
 No API key, no browser. This walks the entire loop against real files and
