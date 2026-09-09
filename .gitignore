@@ -4,6 +4,10 @@ dist/
 .env
 !.env.example
 
+# Playwright's own runtime output (traces, screenshots on failure)
+test-results/
+playwright-report/
+
 # runtime-generated case files, never shipped
 tasks/*
 !tasks/.gitkeep

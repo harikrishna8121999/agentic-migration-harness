@@ -82,7 +82,10 @@ const browserInstalled: Gate = async (ctx) => {
     return { id: "browser-installed", pass: true, message: "skipped — dry run needs no browser" };
   }
   try {
-    execFileSync("npx", ["playwright", "--version"], { stdio: "pipe" });
+    // shell: true because on Windows `npx` is a .cmd shim — execFileSync
+    // can't exec it directly without going through a shell. All arguments
+    // here are fixed strings this repo controls, never external input.
+    execFileSync("npx", ["playwright", "--version"], { stdio: "pipe", shell: true });
     return { id: "browser-installed", pass: true, message: "playwright CLI is available" };
   } catch {
     return {

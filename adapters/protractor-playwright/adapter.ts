@@ -85,9 +85,13 @@ export async function verifyUnit(
   await mkdir(path.dirname(reportPath), { recursive: true });
 
   try {
+    // shell: true — see harness/gates.ts for why (npx is a .cmd shim on
+    // Windows). targetFile and reportPath are this repo's own paths, never
+    // external input, so shell interpretation here is not attacker-facing.
     execFileSync("npx", ["playwright", "test", targetFile, "--reporter=json"], {
       env: { ...process.env, PLAYWRIGHT_JSON_OUTPUT_NAME: reportPath },
       stdio: "pipe",
+      shell: true,
     });
   } catch {
     // Playwright exits non-zero on a failing suite. The report file is what

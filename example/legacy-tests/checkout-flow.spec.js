@@ -1,5 +1,12 @@
 describe("Checkout", () => {
   it("completes a multi-step checkout flow", async () => {
+    // Every test in this suite runs in its own isolated browser session —
+    // there is no shared login step in a beforeEach. Log in first.
+    await browser.get("http://localhost:4000/login");
+    await element(by.id("username")).sendKeys("demo");
+    await element(by.id("password")).sendKeys("demo123");
+    await element(by.id("login-submit")).click();
+
     await browser.get("http://localhost:4000/checkout/step1");
     await element(by.id("item-quantity")).element(by.cssContainingText("option", "2")).click();
     await element(by.id("checkout-next")).click();

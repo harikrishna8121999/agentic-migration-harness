@@ -36,3 +36,21 @@ enforcement cost (see `principles.md` rule 1–3 for the ones that graduated).
   a way back in. Newest-commit-wins is not enough on its own; there has to
   be an explicit reopen record the human can add (`harness/caseFile.ts`,
   `reconcileWithGit`).
+
+- **A source test that relies on session state established somewhere else
+  (a shared login in a `beforeEach`, an earlier test in the same run) will
+  migrate "correctly" and then hang.** The first real run against this
+  repo's own example did exactly this: two source tests (`list.spec.js`,
+  `checkout-flow.spec.js`) navigated straight to a page that requires a
+  session, with no login step of their own — a pattern that works under a
+  legacy runner sharing one browser/session across a whole suite. The
+  migrated Playwright test was a faithful, correct translation of what the
+  source actually did, and it still failed: Playwright gives every test its
+  own isolated browser context, so with no login step it hit a redirect to
+  `/login` and then timed out waiting for a locator that was never going to
+  appear. Nothing was wrong with the harness or the model's output — the
+  source test was under-specifying its own precondition, relying on
+  implicit state the migration had no way to see. Caught mechanically (two
+  identical timeout signatures, thrash-detected, dropped loudly) rather than
+  silently producing a flaky migrated test. Fix was at the source: make each
+  test's login precondition explicit rather than assumed.
