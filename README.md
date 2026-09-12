@@ -1,5 +1,7 @@
 # agent-migration-harness
 
+📝 [Read the blog post](https://dev.to/harikrishnavshetty/i-built-a-hands-free-ai-harness-for-migrating-legacy-tests-3pab)
+
 A reference harness that migrates a legacy browser-test suite to Playwright,
 one test at a time, with mechanical proof that the migrated test really
 passes. The model does the work inside each phase; code — never the model —
@@ -130,5 +132,6 @@ Each idea below is a design decision in this code, not just a paragraph.
 | The evidence contract — real report hash, real assertion parity | `harness/evidence.ts`, `scripts/break-it.ts` |
 | Every gate failure carries its remediation command | `harness/gates.ts` |
 
-A companion blog post walks through why each of these decisions was made,
-including the ones that reversed an earlier approach — link forthcoming.
+[A companion blog post](https://dev.to/harikrishnavshetty/i-built-a-hands-free-ai-harness-for-migrating-legacy-tests-3pab)
+walks through why each of these decisions was made, including the ones that
+reversed an earlier approach.
