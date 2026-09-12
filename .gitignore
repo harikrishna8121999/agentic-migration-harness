@@ -15,5 +15,7 @@ tasks/*
 # runtime-generated retrospective proposals — a reader's own run creates this
 gotchas-proposed.md
 
-# private planning brief — not part of the published repo
+# private planning brief and blog draft — not part of the published repo
 agent-harness-blog-and-repo-plan.md
+blog-post.md
+diagrams/
